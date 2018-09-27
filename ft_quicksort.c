@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libsort.h"
+
+static void	ft_swap(int *a, int *b)
+{
+	int tmp = *a;
+
+	*a = *b;
+	*b = tmp;
+}
+
+static int	partition(int *arr, const int low, const int high)
+{
+	int	i = -1;
+	int	j = low - 1;
+	int	pivot = arr[high];
+
+	while (++j < high)
+	{
+		if (arr[j] < pivot)
+			ft_swap(arr + (++i), arr + j);
+	}
+	ft_swap(arr + (++i), arr + high);
+	return (i);
+}
+
+void		quicksort(int *arr, const size_t len)
+{
+	int pivot;
+	int	low	= 0;
+	int high = len - 1;
+
+	if (low < high)
+	{
+		pivot = partition(arr, low, high);
+		quicksort(arr, pivot);
+		quicksort(arr + pivot, len - pivot);
+	}
+}
