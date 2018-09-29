@@ -12,7 +12,6 @@
 
 #include "libsort.h"
 
-
 /*
  * For every value the insertion sort will save the current value and compare
  * it to every previous value until it finds its final position and shifts the
