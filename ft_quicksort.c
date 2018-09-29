@@ -43,8 +43,13 @@ void		ft_quicksort(int *arr, const size_t len)
 
 	if (low < high)
 	{
-		pivot = partition(arr, low, high);
-		quicksort(arr, pivot);
-		quicksort(arr + pivot, len - pivot);
+		if (len > 16)
+		{
+			pivot = partition(arr, low, high);
+			quicksort(arr, pivot);
+			quicksort(arr + pivot, len - pivot);
+		}
+		else
+			ft_insertion_sort(arr, len);
 	}
 }
