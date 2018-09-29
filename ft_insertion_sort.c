@@ -12,7 +12,7 @@
 
 #include "libsort.h"
 
-void	insertion_sort(int *arr, const size_t len)
+void	ft_insertion_sort(int *arr, const size_t len)
 {
 	int		i;
 	int		j;

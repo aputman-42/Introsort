@@ -12,7 +12,7 @@
 
 #include "libsort.h"
 
-static void	ft_swap(int *a, int *b)
+static void	swap(int *a, int *b)
 {
 	int tmp = *a;
 
@@ -29,13 +29,13 @@ static int	partition(int *arr, const int low, const int high)
 	while (++j < high)
 	{
 		if (arr[j] < pivot)
-			ft_swap(arr + (++i), arr + j);
+			swap(arr + (++i), arr + j);
 	}
-	ft_swap(arr + (++i), arr + high);
+	swap(arr + (++i), arr + high);
 	return (i);
 }
 
-void		quicksort(int *arr, const size_t len)
+void		ft_quicksort(int *arr, const size_t len)
 {
 	int pivot;
 	int	low	= 0;

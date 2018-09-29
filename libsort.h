@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 
-void	insertion_sort(int *arr, const size_t len);
-void	quicksort(int *arr, const size_t len);
+void	ft_insertion_sort(int *arr, const size_t len);
+void	ft_quicksort(int *arr, const size_t len);
 
 #endif
