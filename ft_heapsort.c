@@ -22,21 +22,21 @@ static void	swap(int *a, int *b)
 
 static void	heapify(int *arr, const size_t index, const size_t len)
 {
+	size_t	largest;
 	size_t	left_child;
 	size_t	right_child;
-	size_t	largest;
 
-	left_child = 2 * index + 1;
-	right_child = 2 * index + 2;
+	left_child = index * 2 + 1;
+	right_child = index * 2 + 2;
 	largest = index;
-	if (left_child < len && arr[largest] < arr[left_child])
+	if (left_child < len && arr[left_child] > arr[largest])
 		largest = left_child;
-	if (right_child < len && arr[largest] < arr[right_child])
+	if (right_child < len && arr[right_child] > arr[largest])
 		largest = right_child;
-	if (largest < len)
+	if (largest != index)
 	{
-		swap(arr + index, arr + largest);
-		heapify(arr, index + 1, len);
+		swap(arr + largest, arr + index);
+		heapify(arr, largest, len);
 	}
 }
 
@@ -47,13 +47,13 @@ static void	heapify(int *arr, const size_t index, const size_t len)
  */
 void	ft_heapsort(int *arr, const size_t len)
 {
-	int	i;
+	size_t	i;
 
-	i = len / 2;
-	while (--i >= 0)
+	i = len / 2 - 1;
+	while (--i + 1)
 		heapify(arr, i, len);
 	i = len;
-	while (--i >= 0)
+	while (--i + 1)
 	{
 		swap(arr, arr + i);
 		heapify(arr, 0, i);
