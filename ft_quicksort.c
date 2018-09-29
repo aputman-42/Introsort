@@ -20,11 +20,22 @@ static void	swap(int *a, int *b)
 	*b = tmp;
 }
 
+static int	Mo3(int *arr, const int low, const int high)
+{
+	const int	mid = low + ((high - low) / 2);
+
+	if (arr[low] > arr[high])
+		swap(arr + low, arr + high);
+	if (arr[mid] < arr[low])
+		swap(arr + low, arr + mid);
+	return (arr[high]);
+}
+
 static int	partition(int *arr, const int low, const int high)
 {
 	int	i = -1;
 	int	j = low - 1;
-	int	pivot = arr[high];
+	int	pivot = Mo3(arr, low, high);
 
 	while (++j < high)
 	{
@@ -35,6 +46,9 @@ static int	partition(int *arr, const int low, const int high)
 	return (i);
 }
 
+/*
+ *
+ */
 void		ft_quicksort(int *arr, const size_t len)
 {
 	int pivot;
@@ -46,8 +60,8 @@ void		ft_quicksort(int *arr, const size_t len)
 		if (len > 16)
 		{
 			pivot = partition(arr, low, high);
-			quicksort(arr, pivot);
-			quicksort(arr + pivot, len - pivot);
+			ft_quicksort(arr, pivot);
+			ft_quicksort(arr + pivot, len - pivot);
 		}
 		else
 			ft_insertion_sort(arr, len);
