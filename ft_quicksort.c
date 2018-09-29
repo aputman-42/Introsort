@@ -24,10 +24,12 @@ static int	Mo3(int *arr, const int low, const int high)
 {
 	const int	mid = low + ((high - low) / 2);
 
-	if (arr[low] > arr[high])
+	if (arr[high] < arr[low])
 		swap(arr + low, arr + high);
 	if (arr[mid] < arr[low])
 		swap(arr + low, arr + mid);
+	if (arr[high] < arr[mid])
+		swap(arr + mid, arr + high);
 	return (arr[high]);
 }
 
@@ -47,7 +49,9 @@ static int	partition(int *arr, const int low, const int high)
 }
 
 /*
- *
+ * Best case performance:	O(n log(n))
+ * Average performance:		O(n log(n))
+ * Worst case performance:	O(log(n))
  */
 void		ft_quicksort(int *arr, const size_t len)
 {
