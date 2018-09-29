@@ -48,7 +48,7 @@ static int	partition(int *arr, const int low, const int high)
 	return (i);
 }
 
-/*
+/**
  * Best case performance:	O(n log(n))
  * Average performance:		O(n log(n))
  * Worst case performance:	O(log(n))
