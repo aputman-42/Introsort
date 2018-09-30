@@ -50,7 +50,7 @@ void	ft_heapsort(int *arr, const size_t len)
 {
 	size_t	i;
 
-	i = len / 2 - 1;
+	i = len / 2;
 	while (--i + 1)
 		heapify(arr, i, len);
 	i = len;
