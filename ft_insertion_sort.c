@@ -23,7 +23,7 @@
  */
 void	ft_insertion_sort(int *arr, const size_t len)
 {
-	int		i;
+	size_t	i;
 	int		j;
 	int		key;
 
