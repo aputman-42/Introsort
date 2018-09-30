@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libsort.h"
-#include <math.h>
 
 static void	swap(int *a, int *b)
 {

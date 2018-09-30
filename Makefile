@@ -16,8 +16,9 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_insertion_sort.c\
-		ft_quicksort.c
+SRC = ft_heapsort.c\
+		ft_insertion_sort.c\
+		ft_introsort.c
 
 OBJDIR = ./obj/
 OBJ = $(addprefix $(OBJDIR), $(SRC:.c=.o))
